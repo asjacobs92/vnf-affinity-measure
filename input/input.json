@@ -1,0 +1,270 @@
+{
+    "pms": [
+        {
+            "id": "1",
+            "cpu": "2600",
+            "mem": "8192",
+            "sto": "8000"
+        },
+        {
+            "id": "2",
+            "cpu": "3600",
+            "mem": "8192",
+            "sto": "8000"
+        },
+        {
+            "id": "3",
+            "cpu": "3600",
+            "mem": "8192",
+            "sto": "8000"
+        }
+    ],
+    
+    "fgs": [
+        {
+            "id": "1",
+            "flows": [
+                {
+                    "src": "0",
+                    "dst": "1",
+                    "lat": "10",
+                    "trf": "1300",
+                    "bnd_usage": "25",
+                    "pkt_loss": "1"
+                },
+                {
+                    "src": "1",
+                    "dst": "2",
+                    "lat": "10",
+                    "trf": "1000",
+                    "bnd_usage": "20",
+                    "pkt_loss": "1"
+                },
+                {
+                    "src": "2",
+                    "dst": "3",
+                    "lat": "10",
+                    "trf": "700",
+                    "bnd_usage": "17",
+                    "pkt_loss": "1"
+                }, 
+                {
+                    "src": "3",
+                    "dst": "0",
+                    "lat": "10",
+                    "trf": "600",
+                    "bnd_usage": "16",
+                    "pkt_loss": "1"
+                }
+            ] 
+        },
+        {
+            "id": "2",
+            "flows": [
+                {
+                    "src": "0",
+                    "dst": "1",
+                    "trf": "1300",
+                    "lat": "10",
+                    "bnd_usage": "25",
+                    "pkt_loss": "1"
+                },
+                {
+                    "src": "1",
+                    "dst": "7",
+                    "trf": "300",
+                    "lat": "5",
+                    "bnd_usage": "10",
+                    "pkt_loss": "1"
+                },
+                {
+                    "src": "7",
+                    "dst": "4",
+                    "trf": "300",
+                    "lat": "50",
+                    "bnd_usage": "10",
+                    "pkt_loss": "1"
+                },
+                {
+                    "src": "4",
+                    "dst": "0",
+                    "trf": "300",
+                    "lat": "20",
+                    "bnd_usage": "10",
+                    "pkt_loss": "1"
+                }
+            ] 
+        },
+        {
+            "id": "3",
+            "flows": [
+                {
+                    "src": "0",
+                    "dst": "5",
+                    "trf": "1000",
+                    "lat": "10",
+                    "bnd_usage": "20",
+                    "pkt_loss": "1"
+                },
+                {
+                    "src": "5",
+                    "dst": "6",
+                    "trf": "1000",
+                    "lat": "20",
+                    "bnd_usage": "20",
+                    "pkt_loss": "1"
+                },
+                {
+                    "src": "6",
+                    "dst": "2",
+                    "trf": "1000",
+                    "lat": "50",
+                    "bnd_usage": "20",
+                    "pkt_loss": "1"
+                },
+                {
+                    "src": "2",
+                    "dst": "7",
+                    "trf": "400",
+                    "lat": "5",
+                    "bnd_usage": "8",
+                    "pkt_loss": "1"
+                },
+                {
+                    "src": "7",
+                    "dst": "0",
+                    "trf": "400",
+                    "lat": "10",
+                    "bnd_usage": "8",
+                    "pkt_loss": "1"
+                }
+            ] 
+        }
+    ],
+    
+     "vnfs": [
+        {
+            "id": "1",
+            "label": "Load Balancer",
+            "pm": "1",
+            "fg": "1",
+            "flavor": "1",
+            "vm_cpu": "1000",
+            "vm_mem": "1024",
+            "vm_sto": "2000", 
+            "cpu_usage": "40",
+            "mem_usage": "20",
+            "sto_usage": "30"
+        },
+        {
+            "id": "2",
+            "label": "Firewall",
+            "pm": "1",
+            "fg": "3",
+            "flavor": "1",
+            "vm_cpu": "1000",
+            "vm_mem": "1024",
+            "vm_sto": "2000", 
+            "cpu_usage": "10",
+            "mem_usage": "20",
+            "sto_usage": "10"
+        },
+        {
+            "id": "3",
+            "label": "IDS",
+            "pm": "1",
+            "fg": "1",
+            "flavor": "1",
+            "vm_cpu": "1000",
+            "vm_mem": "1024",
+            "vm_sto": "2000", 
+            "cpu_usage": "35",
+            "mem_usage": "25",
+            "sto_usage": "20"
+        },
+        {
+            "id": "4",
+            "label": "Cache",
+            "pm": "2",
+            "fg": "2",
+            "flavor": "1",
+            "vm_cpu": "1000",
+            "vm_mem": "1024",
+            "vm_sto": "2000", 
+            "cpu_usage": "30",
+            "mem_usage": "20",
+            "sto_usage": "20"
+        },
+        {
+            "id": "5",
+            "label": "IPS",
+            "pm": "3",
+            "fg": "3",
+            "flavor": "1",
+            "vm_cpu": "1000",
+            "vm_mem": "1024",
+            "vm_sto": "2000", 
+            "cpu_usage": "30",
+            "mem_usage": "20",
+            "sto_usage": "5"
+        }, 
+        {
+            "id": "6",
+            "label": "DPI",
+            "pm": "3",
+            "fg": "3",
+            "flavor": "1",
+            "vm_cpu": "1000",
+            "vm_mem": "1024",
+            "vm_sto": "2000", 
+            "cpu_usage": "50",
+            "mem_usage": "30",
+            "sto_usage": "15"
+        },
+        {
+            "id": "7",
+            "label": "NAT",
+            "pm": "3",
+            "fg": "3",
+            "flavor": "1",
+            "vm_cpu": "1000",
+            "vm_mem": "1024",
+            "vm_sto": "2000", 
+            "cpu_usage": "10",
+            "mem_usage": "10",
+            "sto_usage": "5"
+        }
+    ],
+    
+    
+    "flavors": [
+        {
+            "id": "1",
+            "min_cpu": "800",
+            "min_mem": "512",
+            "min_sto": "1000"
+        },
+        {
+            "id": "2",
+            "min_cpu": "1000",
+            "min_mem": "1024",
+            "min_sto": "2000"
+        }
+    ],
+
+    "sla":  "10",
+    "conflicts": [],
+    "weights": {
+        "min_cpu": "2",
+        "min_mem": "1",
+        "min_sto": "1",
+        "conflicts": "1",
+        "cpu_usage": "1",
+        "mem_usage": "1",
+        "sto_usage": "1",
+        "bnd_usage": "1",
+        "pkt_loss": "1",
+        "lat": "1"
+    }
+}
+    
