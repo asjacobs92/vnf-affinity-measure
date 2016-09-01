@@ -28,19 +28,17 @@ def static_affinity(vnf_a, vnf_b):
     return 2.0 / ((1/static_pm_aff) + (1/static_fg_aff))
     
 def trf_affinity(vnf_a, vnf_b):
-    vnf_a_fgs_ids = set(x.id for x in vnf_a.fgs)
-    vnfs_fgs = [fg for fg in vnf_b.fgs if fg.id in vnf_a_fgs_ids]
-    
-    vnfs_trf = 0
-    max_fg_trf = 0
-    for fg in vnfs_fgs:
-        for flow in fg.flows:
+    if (vnf_a.fg.id == vnf_b.fg.id):
+        max_fg_trf = 0
+        vnfs_trf = 0
+        for flow in vnf_a.fg.flows:
             if ((flow.src == vnf_a.id and flow.dst == vnf_b.id) or (flow.src == vnf_b.id and flow.dst == vnf_a.id)):
-                vnfs_trf += flow.trf
+                vnfs_trf = flow.trf
             if (flow.trf > max_fg_trf):
                 max_fg_trf = flow.trf
-                
-    return max(0.001, float(vnfs_trf)/max_fg_trf) if (vnfs_trf != 0) else -1.0
+        if (vnfs_trf != 0):
+            return max(0.001, float(vnfs_trf)/max_fg_trf)
+    return -1.0
     
 def network_affinity(vnf_a, vnf_b):
     trf_aff = trf_affinity(vnf_a, vnf_b)
