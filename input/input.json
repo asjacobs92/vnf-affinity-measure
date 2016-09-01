@@ -8,7 +8,7 @@
         },
         {
             "id": "2",
-            "cpu": "3600",
+            "cpu": "2600",
             "mem": "8192",
             "sto": "8000"
         },
@@ -28,32 +28,48 @@
                     "src": "0",
                     "dst": "1",
                     "lat": "10",
-                    "trf": "1300",
-                    "bnd_usage": "25",
+                    "trf": "5",
+                    "bnd_usage": "5",
                     "pkt_loss": "1"
                 },
                 {
                     "src": "1",
                     "dst": "2",
-                    "lat": "10",
-                    "trf": "1000",
+                    "lat": "1",
+                    "trf": "2",
+                    "bnd_usage": "20",
+                    "pkt_loss": "1"
+                },
+                {
+                    "src": "1",
+                    "dst": "5",
+                    "lat": "5",
+                    "trf": "2",
                     "bnd_usage": "20",
                     "pkt_loss": "1"
                 },
                 {
                     "src": "2",
                     "dst": "3",
-                    "lat": "10",
-                    "trf": "700",
-                    "bnd_usage": "17",
+                    "lat": "1",
+                    "trf": "1",
+                    "bnd_usage": "10",
+                    "pkt_loss": "1"
+                }, 
+                {
+                    "src": "5",
+                    "dst": "3",
+                    "lat": "5",
+                    "trf": "1",
+                    "bnd_usage": "10",
                     "pkt_loss": "1"
                 }, 
                 {
                     "src": "3",
                     "dst": "0",
                     "lat": "10",
-                    "trf": "600",
-                    "bnd_usage": "16",
+                    "trf": "2",
+                    "bnd_usage": "20",
                     "pkt_loss": "1"
                 }
             ] 
@@ -63,34 +79,34 @@
             "flows": [
                 {
                     "src": "0",
-                    "dst": "1",
-                    "trf": "1300",
-                    "lat": "10",
-                    "bnd_usage": "25",
-                    "pkt_loss": "1"
-                },
-                {
-                    "src": "1",
-                    "dst": "7",
-                    "trf": "300",
-                    "lat": "5",
-                    "bnd_usage": "10",
-                    "pkt_loss": "1"
-                },
-                {
-                    "src": "7",
                     "dst": "4",
-                    "trf": "300",
-                    "lat": "50",
-                    "bnd_usage": "10",
+                    "trf": "2",
+                    "lat": "10",
+                    "bnd_usage": "2",
                     "pkt_loss": "1"
                 },
                 {
                     "src": "4",
+                    "dst": "5",
+                    "trf": "2",
+                    "lat": "35",
+                    "bnd_usage": "20",
+                    "pkt_loss": "1"
+                },
+                {
+                    "src": "5",
+                    "dst": "6",
+                    "trf": "0.4",
+                    "lat": "1",
+                    "bnd_usage": "4",
+                    "pkt_loss": "1"
+                },
+                {
+                    "src": "6",
                     "dst": "0",
-                    "trf": "300",
-                    "lat": "20",
-                    "bnd_usage": "10",
+                    "trf": "0.4",
+                    "lat": "10",
+                    "bnd_usage": "0.4",
                     "pkt_loss": "1"
                 }
             ] 
@@ -100,46 +116,62 @@
             "flows": [
                 {
                     "src": "0",
-                    "dst": "5",
-                    "trf": "1000",
+                    "dst": "1",
+                    "trf": "5",
                     "lat": "10",
-                    "bnd_usage": "20",
+                    "bnd_usage": "5",
                     "pkt_loss": "1"
                 },
                 {
-                    "src": "5",
-                    "dst": "6",
-                    "trf": "1000",
-                    "lat": "20",
-                    "bnd_usage": "20",
-                    "pkt_loss": "1"
-                },
-                {
-                    "src": "6",
+                    "src": "1",
                     "dst": "2",
-                    "trf": "1000",
-                    "lat": "50",
-                    "bnd_usage": "20",
+                    "trf": "0.5",
+                    "lat": "1",
+                    "bnd_usage": "5",
+                    "pkt_loss": "1"
+                },
+                {
+                    "src": "1",
+                    "dst": "5",
+                    "trf": "0.5",
+                    "lat": "5",
+                    "bnd_usage": "5",
                     "pkt_loss": "1"
                 },
                 {
                     "src": "2",
-                    "dst": "7",
-                    "trf": "400",
+                    "dst": "4",
+                    "trf": "0.2",
                     "lat": "5",
-                    "bnd_usage": "8",
+                    "bnd_usage": "2",
+                    "pkt_loss": "1"
+                },
+                {
+                    "src": "5",
+                    "dst": "4",
+                    "trf": "0.2",
+                    "lat": "1",
+                    "bnd_usage": "2",
+                    "pkt_loss": "1"
+                },
+                {
+                    "src": "4",
+                    "dst": "7",
+                    "trf": "0.4",
+                    "lat": "28",
+                    "bnd_usage": "4",
                     "pkt_loss": "1"
                 },
                 {
                     "src": "7",
                     "dst": "0",
-                    "trf": "400",
+                    "trf": "0.4",
                     "lat": "10",
-                    "bnd_usage": "8",
+                    "bnd_usage": "0.4",
                     "pkt_loss": "1"
                 }
             ] 
-        }
+        },
     ],
     
      "vnfs": [
@@ -158,7 +190,7 @@
         },
         {
             "id": "2",
-            "label": "Firewall",
+            "label": "Firewall A",
             "pm": "1",
             "fg": "3",
             "flavor": "1",
@@ -184,58 +216,57 @@
         },
         {
             "id": "4",
-            "label": "Cache",
+            "label": "DPI",
             "pm": "2",
             "fg": "2",
             "flavor": "1",
             "vm_cpu": "1000",
             "vm_mem": "1024",
             "vm_sto": "2000", 
-            "cpu_usage": "30",
-            "mem_usage": "20",
+            "cpu_usage": "60",
+            "mem_usage": "30",
             "sto_usage": "20"
-        },
-        {
-            "id": "5",
-            "label": "IPS",
-            "pm": "3",
-            "fg": "3",
-            "flavor": "1",
-            "vm_cpu": "1000",
-            "vm_mem": "1024",
-            "vm_sto": "2000", 
-            "cpu_usage": "30",
-            "mem_usage": "20",
-            "sto_usage": "5"
         }, 
         {
-            "id": "6",
-            "label": "DPI",
-            "pm": "3",
-            "fg": "3",
-            "flavor": "1",
-            "vm_cpu": "1000",
-            "vm_mem": "1024",
-            "vm_sto": "2000", 
-            "cpu_usage": "50",
-            "mem_usage": "30",
-            "sto_usage": "15"
-        },
-        {
-            "id": "7",
-            "label": "NAT",
-            "pm": "3",
-            "fg": "3",
+            "id": "5",
+            "label": "Firewall B",
+            "pm": "2",
+            "fg": "2",
             "flavor": "1",
             "vm_cpu": "1000",
             "vm_mem": "1024",
             "vm_sto": "2000", 
             "cpu_usage": "10",
-            "mem_usage": "10",
-            "sto_usage": "5"
-        }
+            "mem_usage": "20",
+            "sto_usage": "10"
+        },
+        {
+            "id": "6",
+            "label": "IPS",
+            "pm": "3=2",
+            "fg": "2",
+            "flavor": "1",
+            "vm_cpu": "1000",
+            "vm_mem": "1024",
+            "vm_sto": "2000", 
+            "cpu_usage": "10",
+            "mem_usage": "20",
+            "sto_usage": "15"
+        },
+        {
+            "id": "7",
+            "label": "Traffic Counter",
+            "pm": "3",
+            "fg": "3",
+            "flavor": "1",
+            "vm_cpu": "1000",
+            "vm_mem": "1024",
+            "vm_sto": "2000", 
+            "cpu_usage": "20",
+            "mem_usage": "15",
+            "sto_usage": "20"
+        },
     ],
-    
     
     "flavors": [
         {
@@ -252,10 +283,10 @@
         }
     ],
 
-    "sla":  "10",
+    "sla":  "30",
     "conflicts": [],
     "weights": {
-        "min_cpu": "2",
+        "min_cpu": "1",
         "min_mem": "1",
         "min_sto": "1",
         "conflicts": "1",

@@ -77,7 +77,7 @@ def lat_affinity(vnf_a, vnf_b):
     if (vnf_a.fg.id == vnf_b.fg.id):
         flow = next((x for x in vnf_a.fg.flows if ((x.src == vnf_a.id and x.dst == vnf_b.id) or (x.src == vnf_b.id and x.dst == vnf_a.id))), None)
         if (flow != None):
-            return 1 if (flow.lat <= nsd.sla) else max(0.001, 1.0 - ((flow.lat - nsd.sla) / nsd.sla))
+            return 1 if (2*flow.lat <= nsd.sla) else max(0.001, 1.0 - ((2*flow.lat - nsd.sla) / nsd.sla))
     return -1.0    
 
 nsd = NSD()

@@ -11,7 +11,7 @@ class VNF(object):
         self.id = int(id)
         self.label = label
         self.pm = pm
-        self.fg = fg
+        self.fgs = fg
         self.flavor = flavor
         self.vm_cpu = float(vm_cpu)
         self.vm_mem = float(vm_mem)
@@ -40,6 +40,12 @@ class Flow(object):
         self.trf = float(trf)
         self.bnd_usage = float(bnd_usage)
         self.pkt_loss = float(pkt_loss)
+
+class Link(object):
+    def __init__(self, id, bnd_usage, total_trf):
+        self.id = int(id)
+        self.bnd_usage = float(bnd_usage)
+        self.total_trf = float(total_trf)
         
 class Flavor(object):
     def __init__(self, id, min_cpu, min_mem, min_sto):

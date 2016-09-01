@@ -19,16 +19,13 @@ def parse_pms(data):
         pms.append(pm)
     return pms
 
-def parse_fgs(data):
-    fgs = []
-    for fg_data in data["fgs"]:
-        flows = []
-        for flow_data in fg_data["flows"]:
-            flow = Flow(flow_data["src"], flow_data["dst"], flow_data["lat"], flow_data["trf"], flow_data["bnd_usage"], flow_data["pkt_loss"])
-            flows.append(flow)
-        fg = FG(fg_data["id"], flows)
-        fgs.append(fg)
-    return fgs
+def parse_fg(data):
+    flows = []
+    for flow_data in data["flows"]:
+        flow = Flow(flow_data["src"], flow_data["dst"], flow_data["lat"], flow_data["trf"], flow_data["bnd_usage"], flow_data["pkt_loss"])
+        flows.append(flow)
+    fg = FG(data["id"], flows)
+    return fg
 
 def parse_flavors(data):
     flavors = []
@@ -37,13 +34,14 @@ def parse_flavors(data):
         flavors.append(flavor)
     return flavors
 
-"""TODO: Allow multiple FGs"""
 def parse_vnfs(data, pms, fgs, flavors):
     vnfs = []
     for vnf_data in data["vnfs"]:
         vnf_pm = next((x for x in pms if x.id == int(vnf_data["pm"])), None)
-        vnf_fg = next((x for x in fgs if x.id == int(vnf_data["fg"])), None)
         vnf_flavor = next((x for x in flavors if x.id == int(vnf_data["flavor"])), None)
-        vnf = VNF(vnf_data["id"], vnf_data["label"], vnf_pm, vnf_fg, vnf_flavor, vnf_data["vm_cpu"], vnf_data["vm_mem"], vnf_data["vm_sto"], vnf_data["cpu_usage"], vnf_data["mem_usage"], vnf_data["sto_usage"])
+        vnf_fgs = []
+        for vnf_fg in vnf_data["fgs"]:
+            vnf_fgs.append(next((x for x in fgs if x.id == int(vnf_fg)), None))
+        vnf = VNF(vnf_data["id"], vnf_data["label"], vnf_pm, vnf_fgs, vnf_flavor, vnf_data["vm_cpu"], vnf_data["vm_mem"], vnf_data["vm_sto"], vnf_data["cpu_usage"], vnf_data["mem_usage"], vnf_data["sto_usage"])
         vnfs.append(vnf)  
     return vnfs
