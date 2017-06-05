@@ -1,2 +1,2 @@
-# Criteria Based Affinity Measure for NFV-enabled Networks
-Implementation of affinity measure between VNFs proposed in article under development.
+# Affinity Measurement for NFV-enabled Networks: A Criteria-based Approach
+Implementation of affinity measurement between VNFs proposed in article to appear in IM 2017.
